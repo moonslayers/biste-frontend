@@ -1,1 +1,241 @@
-/* Demo styles */
+/* Demo Component Styles */
+
+/* Animaciones de transición suave */
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Estilos para las gráficas Chart.js */
+canvas {
+  max-height: 256px;
+  border-radius: 8px;
+}
+
+/* Efectos hover en las tarjetas de productos */
+.product-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.product-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 20px 25px -5px rgba(239, 68, 68, 0.3);
+}
+
+/* Efectos para el carrito */
+.cart-item {
+  transition: all 0.2s ease;
+}
+
+.cart-item:hover {
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+/* Animaciones para los botones de cantidad */
+.quantity-btn {
+  transition: all 0.2s ease;
+}
+
+.quantity-btn:hover {
+  transform: scale(1.1);
+}
+
+.quantity-btn:active {
+  transform: scale(0.95);
+}
+
+/* Estilos para la tabla de inventario */
+.inventory-table {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.inventory-row {
+  transition: all 0.2s ease;
+}
+
+.inventory-row:hover {
+  background-color: rgba(239, 68, 68, 0.1);
+  transform: translateX(2px);
+}
+
+/* Indicadores de estado */
+.status-critical {
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+  box-shadow: 0 4px 6px -1px rgba(220, 38, 38, 0.3);
+  animation: pulse-critical 2s infinite;
+}
+
+.status-normal {
+  background: linear-gradient(135deg, #ea580c, #dc2626);
+  box-shadow: 0 4px 6px -1px rgba(234, 88, 12, 0.3);
+}
+
+.status-optimal {
+  background: linear-gradient(135deg, #16a34a, #15803d);
+  box-shadow: 0 4px 6px -1px rgba(22, 163, 74, 0.3);
+}
+
+@keyframes pulse-critical {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+/* Métricas cards animadas */
+.metric-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.metric-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .metric-card {
+    margin-bottom: 1rem;
+  }
+
+  .inventory-table {
+    font-size: 0.875rem;
+  }
+
+  .cart-section {
+    order: -1;
+  }
+}
+
+/* Loading animation para charts */
+.chart-loading {
+  position: relative;
+}
+
+.chart-loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(239, 68, 68, 0.1);
+  animation: pulse 1.5s infinite;
+  border-radius: 8px;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+/* Botones de navegación mejorados */
+.nav-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.4s, height 0.4s;
+}
+
+.nav-button:active::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Scrollbar personalizado */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(239, 68, 68, 0.1);
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(239, 68, 68, 0.6);
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(239, 68, 68, 0.8);
+}
+
+/* Focus states mejorados */
+input:focus, select:focus {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+}
+
+/* Animation para nuevos items en el carrito */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.new-cart-item {
+  animation: slideInRight 0.3s ease-out;
+}
+
+/* Efectos para los filtros */
+.filter-section {
+  backdrop-filter: blur(10px);
+}
+
+/* Gráficos responsive */
+.chart-container {
+  position: relative;
+  height: 256px;
+}
+
+@media (max-width: 640px) {
+  .chart-container {
+    height: 200px;
+  }
+}
+
+/* Icon animations */
+.icon-rotate {
+  animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

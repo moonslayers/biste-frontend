@@ -1,33 +1,417 @@
-<section class="min-h-screen py-20 bg-gradient-to-br from-red-950 via-red-900 to-red-950">
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center max-w-4xl mx-auto">
-      <h1 class="text-5xl md:text-7xl font-bold text-white mb-6">
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-red-600">
-          Demostración
+<section class="min-h-screen bg-linear-to-br from-slate-900 via-slate-800 to-slate-900">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <!-- Header -->
+    <div class="text-center mb-8">
+      <h1 class="text-4xl md:text-6xl font-bold text-white mb-4">
+        <span class="text-transparent bg-clip-text bg-linear-to-r from-red-500 to-orange-500">
+          Sistema Bisté Demo
         </span>
       </h1>
-      <p class="text-xl md:text-2xl text-orange-200 mb-8">
-        Explora todas las funcionalidades del sistema Bisté
+      <p class="text-lg md:text-xl text-slate-300">
+        Explora todas las funcionalidades del sistema de gestión para carnicerías
       </p>
-      <div class="bg-red-800/50 backdrop-blur-sm rounded-2xl p-12 border border-red-700/50">
-        <div class="text-red-300">
-          <svg class="w-24 h-24 mx-auto mb-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-          </svg>
-          <h3 class="text-2xl font-bold text-white mb-4">Próximamente</h3>
-          <p class="text-lg mb-6">Estamos trabajando en una demo interactiva completa para ti.</p>
-          <p class="mb-8">Mientras tanto, puedes <a routerLink="/contact" class="text-red-400 hover:text-red-300">contactarnos</a> para una demo personalizada.</p>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a routerLink="/" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-full transition-colors duration-300">
-              Volver al Inicio
-            </a>
-            <a routerLink="/contact" class="bg-slate-700 hover:bg-slate-600 text-white font-bold py-3 px-6 rounded-full transition-colors duration-300">
-              Solicitar Demo
-            </a>
+    </div>
+
+    <!-- Navigation Menu -->
+    <div class="flex justify-center mb-8">
+      <div class="bg-slate-800/50 backdrop-blur-sm rounded-xl p-2 border border-slate-700/50">
+        <nav class="flex flex-wrap gap-2">
+          <button
+            (click)="switchSection('dashboard')"
+            [class]="activeSection === 'dashboard' ?
+              'bg-red-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300' :
+              'bg-slate-700/50 text-slate-300 hover:bg-slate-600/50 px-6 py-3 rounded-lg font-semibold transition-all duration-300'">
+            📊 Dashboard
+          </button>
+          <button
+            (click)="switchSection('pos')"
+            [class]="activeSection === 'pos' ?
+              'bg-red-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300' :
+              'bg-slate-700/50 text-slate-300 hover:bg-slate-600/50 px-6 py-3 rounded-lg font-semibold transition-all duration-300'">
+            🛒 Punto de Venta
+          </button>
+          <button
+            (click)="switchSection('inventory')"
+            [class]="activeSection === 'inventory' ?
+              'bg-red-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300' :
+              'bg-slate-700/50 text-slate-300 hover:bg-slate-600/50 px-6 py-3 rounded-lg font-semibold transition-all duration-300'">
+            📦 Inventario
+          </button>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Content Area -->
+    <div class="bg-slate-800/30 backdrop-blur-sm rounded-2xl border border-slate-700/40 p-6 md:p-8">
+
+      <!-- Dashboard Section -->
+      <div *ngIf="activeSection === 'dashboard'" class="space-y-6">
+        <!-- Metrics Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+          <div class="bg-linear-to-br from-red-600 to-red-700 rounded-xl p-6 text-white">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-slate-300 text-sm">Kilos Ingresados</p>
+                <p class="text-3xl font-bold">9,680</p>
+                <p class="text-slate-400 text-xs mt-1">📈 +12% este mes</p>
+              </div>
+              <div class="text-4xl">🥩</div>
+            </div>
+          </div>
+          <div class="bg-linear-to-br from-orange-600 to-red-600 rounded-xl p-6 text-white">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-orange-200 text-sm">Kilos Vendidos</p>
+                <p class="text-3xl font-bold">7,930</p>
+                <p class="text-orange-200 text-xs mt-1">📈 +8% este mes</p>
+              </div>
+              <div class="text-4xl">💰</div>
+            </div>
+          </div>
+          <div class="bg-linear-to-br from-yellow-600 to-orange-600 rounded-xl p-6 text-white">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-yellow-200 text-sm">Subproductos</p>
+                <p class="text-3xl font-bold">670</p>
+                <p class="text-yellow-200 text-xs mt-1">🌭 kg procesados</p>
+              </div>
+              <div class="text-4xl">🌭</div>
+            </div>
+          </div>
+          <div class="bg-linear-to-br from-red-700 to-red-800 rounded-xl p-6 text-white">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-slate-300 text-sm">Ingresos</p>
+                <p class="text-3xl font-bold">$1.2M</p>
+                <p class="text-slate-400 text-xs mt-1">💵 total este año</p>
+              </div>
+              <div class="text-4xl">📊</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Charts Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <!-- Monthly Ingress Chart -->
+          <div class="bg-slate-800/50 rounded-xl p-6 border border-slate-700/50">
+            <h3 class="text-xl font-bold text-white mb-4">Kilos Ingresados por Mes</h3>
+            <div class="h-64">
+              <canvas id="monthlyIngressChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Sales Chart -->
+          <div class="bg-slate-800/50 rounded-xl p-6 border border-slate-700/50">
+            <h3 class="text-xl font-bold text-white mb-4">Kilos Vendidos por Mes</h3>
+            <div class="h-64">
+              <canvas id="salesChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Product Sales Chart -->
+          <div class="bg-slate-800/50 rounded-xl p-6 border border-slate-700/50">
+            <h3 class="text-xl font-bold text-white mb-4">Ventas por Producto</h3>
+            <div class="h-64">
+              <canvas id="productSalesChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Subproduct Chart -->
+          <div class="bg-slate-800/50 rounded-xl p-6 border border-slate-700/50">
+            <h3 class="text-xl font-bold text-white mb-4">Conversión a Subproductos</h3>
+            <div class="h-64">
+              <canvas id="subproductChart"></canvas>
+            </div>
           </div>
         </div>
       </div>
+
+      <!-- POS Section -->
+      <div *ngIf="activeSection === 'pos'" class="space-y-6">
+        <!-- Header -->
+        <div class="text-center">
+          <h3 class="text-2xl lg:text-3xl font-bold text-white mb-2">Punto de Venta</h3>
+          <p class="text-slate-400">Selecciona productos y gestiona tu pedido</p>
+        </div>
+
+        <!-- Mobile Cart - Sticky Top on Mobile -->
+        <div class="lg:hidden">
+          <div class="bg-slate-800/90 backdrop-blur-sm rounded-xl p-4 border border-slate-700/50 sticky top-4 z-10">
+            <div class="flex items-center justify-between mb-3">
+              <h4 class="text-white font-semibold">🛒 Carrito ({{ cartItems.length }})</h4>
+              <div class="text-orange-300 font-bold text-lg">${{ getCartTotal() }}</div>
+            </div>
+
+            <!-- Mini Cart Items (max 3 items visible) -->
+            <div *ngIf="cartItems.length > 0" class="space-y-2 max-h-32 overflow-y-auto mb-3">
+              <div *ngFor="let item of cartItems.slice(0, 3); let i = index"
+                   class="bg-slate-700/50 rounded-lg p-2 flex items-center justify-between text-sm">
+                <div class="flex-1">
+                  <span class="text-white font-medium text-xs">{{ item.name }}</span>
+                  <span class="text-slate-400 ml-2 text-xs">x{{ item.quantity }}</span>
+                </div>
+                <span class="text-orange-300 font-semibold text-sm">${{ item.price * item.quantity }}</span>
+              </div>
+              <div *ngIf="cartItems.length > 3" class="text-center text-slate-400 text-xs">
+                +{{ cartItems.length - 3 }} más productos
+              </div>
+            </div>
+
+            <div *ngIf="cartItems.length === 0" class="text-center text-slate-400 text-sm mb-3">
+              Tu carrito está vacío
+            </div>
+
+            <div class="grid grid-cols-2 gap-2">
+              <button (click)="clearCart()"
+                      class="bg-slate-600 hover:bg-slate-700 text-white font-semibold py-2 px-3 rounded-lg transition-colors duration-200 text-sm">
+                Limpiar
+              </button>
+              <button class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-3 rounded-lg transition-colors duration-200 text-sm">
+                Cobrar
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Desktop Layout -->
+        <div class="hidden lg:grid lg:grid-cols-3 gap-6">
+          <!-- Products Grid (Desktop) -->
+          <div class="lg:col-span-2">
+            <h3 class="text-xl font-bold text-white mb-4">Selecciona Productos</h3>
+            <div class="grid grid-cols-3 gap-4">
+              <div *ngFor="let product of products"
+                   class="bg-slate-800/50 rounded-xl p-4 border border-slate-700/50 hover:bg-slate-700/60 transition-all duration-300 cursor-pointer transform hover:scale-105">
+                <div class="text-center">
+                  <div class="text-4xl mb-2">{{ product.image }}</div>
+                  <h4 class="text-white font-bold text-sm mb-1">{{ product.name }}</h4>
+                  <p class="text-orange-300 font-bold text-lg mb-3">${{ product.price }}/kg</p>
+                  <button (click)="addToCart(product)"
+                          class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-3 rounded-lg transition-colors duration-200 text-sm">
+                    Agregar
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cart (Desktop) -->
+          <div class="bg-slate-800/50 rounded-xl p-6 border border-slate-700/50">
+            <h3 class="text-xl font-bold text-white mb-4">Carrito de Compras</h3>
+
+            <div *ngIf="cartItems.length === 0" class="text-center text-slate-400 py-8">
+              <div class="text-4xl mb-3">🛒</div>
+              <p>Tu carrito está vacío</p>
+            </div>
+
+            <div *ngIf="cartItems.length > 0">
+              <div class="space-y-3 mb-6 max-h-96 overflow-y-auto">
+                <div *ngFor="let item of cartItems"
+                     class="bg-slate-700/50 rounded-lg p-3 flex items-center justify-between">
+                  <div class="flex-1">
+                    <h4 class="text-white font-semibold">{{ item.name }}</h4>
+                    <p class="text-orange-300 text-sm">${{ item.price }}/kg</p>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <button (click)="updateQuantity(item.id, item.quantity - 1)"
+                            class="bg-red-600 hover:bg-red-700 text-white w-8 h-8 rounded-full font-bold transition-colors duration-200">
+                      -
+                    </button>
+                    <span class="text-white font-semibold w-8 text-center">{{ item.quantity }}</span>
+                    <button (click)="updateQuantity(item.id, item.quantity + 1)"
+                            class="bg-green-600 hover:bg-green-700 text-white w-8 h-8 rounded-full font-bold transition-colors duration-200">
+                      +
+                    </button>
+                    <button (click)="removeFromCart(item.id)"
+                            class="bg-orange-600 hover:bg-orange-700 text-white w-8 h-8 rounded-full font-bold ml-2 transition-colors duration-200">
+                      ×
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="border-t border-slate-700 pt-4">
+                <div class="flex justify-between items-center mb-4">
+                  <span class="text-white text-lg font-semibold">Total:</span>
+                  <span class="text-orange-300 text-2xl font-bold">${{ getCartTotal() }}</span>
+                </div>
+
+                <div class="grid grid-cols-2 gap-2">
+                  <button (click)="clearCart()"
+                          class="bg-slate-600 hover:bg-slate-700 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-200">
+                    Limpiar
+                  </button>
+                  <button class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-200">
+                    Cobrar
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile Products Horizontal Scroll -->
+        <div class="lg:hidden">
+          <h3 class="text-lg font-bold text-white mb-3">Selecciona Productos</h3>
+          <div class="flex gap-3 overflow-x-auto pb-4" style="scrollbar-width: none; -ms-overflow-style: none;">
+            <style>
+              .flex::-webkit-scrollbar { display: none; }
+            </style>
+            <div *ngFor="let product of products"
+                 class="flex-shrink-0 bg-slate-800/50 rounded-xl p-3 border border-slate-700/50 hover:bg-slate-700/60 transition-all duration-300 cursor-pointer transform hover:scale-105 w-28">
+              <div class="text-center">
+                <div class="text-2xl mb-2">{{ product.image }}</div>
+                <h4 class="text-white font-bold text-xs mb-1 leading-tight">{{ product.name }}</h4>
+                <p class="text-orange-300 font-bold text-sm mb-2">${{ product.price }}/kg</p>
+                <button (click)="addToCart(product)"
+                        class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-2 rounded-lg transition-colors duration-200 text-xs">
+                  +
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile Cart Details (Expandable) -->
+        <div class="lg:hidden">
+          <div *ngIf="cartItems.length > 0" class="bg-slate-800/50 rounded-xl p-4 border border-slate-700/50">
+            <details class="group">
+              <summary class="flex items-center justify-between cursor-pointer list-none mb-3 p-2 bg-slate-700/30 rounded-lg">
+                <h4 class="text-white font-semibold">📋 Detalles del Carrito</h4>
+                <svg class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </summary>
+
+              <div class="space-y-2 max-h-64 overflow-y-auto">
+                <div *ngFor="let item of cartItems"
+                     class="bg-slate-700/50 rounded-lg p-3 flex items-center justify-between">
+                  <div class="flex-1">
+                    <h4 class="text-white font-medium text-sm">{{ item.name }}</h4>
+                    <p class="text-orange-300 text-xs">${{ item.price }}/kg</p>
+                  </div>
+                  <div class="flex items-center gap-1">
+                    <button (click)="updateQuantity(item.id, item.quantity - 1)"
+                            class="bg-red-600 hover:bg-red-700 text-white w-6 h-6 rounded-full text-xs font-bold transition-colors duration-200">
+                      -
+                    </button>
+                    <span class="text-white font-semibold text-xs w-4 text-center">{{ item.quantity }}</span>
+                    <button (click)="updateQuantity(item.id, item.quantity + 1)"
+                            class="bg-green-600 hover:bg-green-700 text-white w-6 h-6 rounded-full text-xs font-bold transition-colors duration-200">
+                      +
+                    </button>
+                    <button (click)="removeFromCart(item.id)"
+                            class="bg-orange-600 hover:bg-orange-700 text-white w-6 h-6 rounded-full text-xs font-bold ml-1 transition-colors duration-200">
+                      ×
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+
+      <!-- Inventory Section -->
+      <div *ngIf="activeSection === 'inventory'" class="space-y-6">
+        <!-- Filters -->
+        <div class="bg-slate-800/50 rounded-xl p-4 border border-slate-700/50">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div>
+              <label for="search-input" class="text-slate-300 text-sm block mb-2">Buscar</label>
+              <input
+                id="search-input"
+                [(ngModel)]="inventoryFilters.search"
+                (input)="filterInventory()"
+                type="text"
+                placeholder="Producto o proveedor..."
+                class="w-full px-4 py-2 rounded-lg bg-red-800/50 text-white placeholder-red-400 border border-red-700/50 focus:outline-none focus:border-red-500">
+            </div>
+            <div>
+              <label for="category-select" class="text-slate-300 text-sm block mb-2">Categoría</label>
+              <select
+                id="category-select"
+                [(ngModel)]="inventoryFilters.category"
+                (change)="filterInventory()"
+                class="w-full px-4 py-2 rounded-lg bg-red-800/50 text-white border border-red-700/50 focus:outline-none focus:border-red-500">
+                <option value="">Todas</option>
+                <option value="cortes">Cortes</option>
+                <option value="embutidos">Embutidos</option>
+              </select>
+            </div>
+            <div>
+              <label for="status-select" class="text-slate-300 text-sm block mb-2">Estado</label>
+              <select
+                id="status-select"
+                [(ngModel)]="inventoryFilters.status"
+                (change)="filterInventory()"
+                class="w-full px-4 py-2 rounded-lg bg-red-800/50 text-white border border-red-700/50 focus:outline-none focus:border-red-500">
+                <option value="">Todos</option>
+                <option value="optimal">Óptimo</option>
+                <option value="normal">Normal</option>
+                <option value="critical">Crítico</option>
+              </select>
+            </div>
+            <div class="flex items-end">
+              <button (click)="filterInventory()"
+                      class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-200">
+                🔍 Filtrar
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Inventory Table -->
+        <div class="bg-slate-800/50 rounded-xl p-6 border border-slate-700/50">
+          <div class="overflow-x-auto">
+            <table class="w-full text-white">
+              <thead>
+                <tr class="border-b border-slate-700/50">
+                  <th class="text-left p-3 font-semibold">Producto</th>
+                  <th class="text-left p-3 font-semibold">Cantidad</th>
+                  <th class="text-left p-3 font-semibold">Precio</th>
+                  <th class="text-left p-3 font-semibold">Fecha Entrada</th>
+                  <th class="text-left p-3 font-semibold">Proveedor</th>
+                  <th class="text-left p-3 font-semibold">Ubicación</th>
+                  <th class="text-left p-3 font-semibold">Lote</th>
+                  <th class="text-left p-3 font-semibold">Estado</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of filteredInventory"
+                    class="border-b border-slate-700/30 hover:bg-slate-700/30 transition-colors duration-200">
+                  <td class="p-3 font-medium">{{ item.product }}</td>
+                  <td class="p-3">
+                    <span class="font-medium">{{ item.quantity }} {{ item.unit }}</span>
+                  </td>
+                  <td class="p-3">${{ item.price }}</td>
+                  <td class="p-3">{{ item.entryDate }}</td>
+                  <td class="p-3">{{ item.provider }}</td>
+                  <td class="p-3">{{ item.location }}</td>
+                  <td class="p-3 font-mono text-sm">{{ item.batch }}</td>
+                  <td class="p-3">
+                    <span [class]="getStatusClass(item.status)"
+                          class="px-2 py-1 rounded-full text-xs font-semibold">
+                      {{ item.status === 'critical' ? '⚠️ Crítico' :
+                         item.status === 'normal' ? '✅ Normal' : '✨ Óptimo' }}
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div *ngIf="filteredInventory.length === 0" class="text-center py-8 text-red-300">
+              <p>No se encontraron productos con los filtros seleccionados.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Back to Home -->
+    <div class="text-center mt-8">
+      <a routerLink="/" class="inline-flex items-center bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-full transition-colors duration-300">
+        ← Volver al Inicio
+      </a>
     </div>
   </div>
 </section>
