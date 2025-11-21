@@ -1,0 +1,124 @@
+<header class="fixed top-0 left-0 right-0 z-50 bg-red-950/95 backdrop-blur-md border-b border-red-900/30">
+  <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo -->
+      <div class="flex-shrink-0">
+        <a routerLink="/" class="group">
+          <app-logo></app-logo>
+        </a>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:block">
+        <div class="ml-10 flex items-baseline space-x-8">
+          <a
+            routerLink="/"
+            class="text-red-100 hover:text-red-300 px-3 py-2 text-sm font-medium transition-colors duration-200 relative group"
+            [class.text-red-300]="isActiveRoute('/')"
+          >
+            Inicio
+            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-red-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200"></span>
+          </a>
+          <a
+            routerLink="/demo"
+            class="text-red-100 hover:text-red-300 px-3 py-2 text-sm font-medium transition-colors duration-200 relative group"
+            [class.text-red-300]="isActiveRoute('/demo')"
+          >
+            Demo
+            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-red-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200"></span>
+          </a>
+          <a
+            routerLink="/about"
+            class="text-red-100 hover:text-red-300 px-3 py-2 text-sm font-medium transition-colors duration-200 relative group"
+            [class.text-red-300]="isActiveRoute('/about')"
+          >
+            Sobre Nosotros
+            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-red-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200"></span>
+          </a>
+          <a
+            routerLink="/contact"
+            class="text-red-100 hover:text-red-300 px-3 py-2 text-sm font-medium transition-colors duration-200 relative group"
+            [class.text-red-300]="isActiveRoute('/contact')"
+          >
+            Contacto
+            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-red-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200"></span>
+          </a>
+        </div>
+      </div>
+
+      <!-- CTA Button -->
+      <div class="hidden md:block">
+        <button class="bg-gradient-to-r from-red-800 to-red-900 hover:from-red-900 hover:to-red-950 text-white font-bold py-2 px-6 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-red-800/25">
+          Comenzar Gratis
+        </button>
+      </div>
+
+      <!-- Mobile menu button -->
+      <div class="md:hidden">
+        <button
+          (click)="toggleMobileMenu()"
+          class="text-white hover:text-red-400 p-2 rounded-md transition-colors duration-200"
+          [attr.aria-expanded]="isMobileMenuOpen"
+          aria-controls="mobile-menu"
+        >
+          <span class="sr-only">Open main menu</span>
+          <!-- Hamburger icon -->
+          <svg *ngIf="!isMobileMenuOpen" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <!-- Close icon -->
+          <svg *ngIf="isMobileMenuOpen" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div
+      *ngIf="isMobileMenuOpen"
+      id="mobile-menu"
+      class="md:hidden transition-all duration-300 ease-in-out"
+    >
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-red-950/95 rounded-lg mt-2 backdrop-blur-sm">
+        <a
+          routerLink="/"
+          (click)="closeMobileMenu()"
+          class="text-red-100 hover:text-red-300 block px-3 py-2 text-base font-medium transition-colors duration-200"
+          [class.text-red-300]="isActiveRoute('/')"
+        >
+          Inicio
+        </a>
+        <a
+          routerLink="/demo"
+          (click)="closeMobileMenu()"
+          class="text-red-100 hover:text-red-300 block px-3 py-2 text-base font-medium transition-colors duration-200"
+          [class.text-red-300]="isActiveRoute('/demo')"
+        >
+          Demo
+        </a>
+        <a
+          routerLink="/about"
+          (click)="closeMobileMenu()"
+          class="text-red-100 hover:text-red-300 block px-3 py-2 text-base font-medium transition-colors duration-200"
+          [class.text-red-300]="isActiveRoute('/about')"
+        >
+          Sobre Nosotros
+        </a>
+        <a
+          routerLink="/contact"
+          (click)="closeMobileMenu()"
+          class="text-red-100 hover:text-red-300 block px-3 py-2 text-base font-medium transition-colors duration-200"
+          [class.text-red-300]="isActiveRoute('/contact')"
+        >
+          Contacto
+        </a>
+        <div class="pt-2 border-t border-red-900">
+          <button class="w-full bg-gradient-to-r from-red-800 to-red-900 hover:from-red-900 hover:to-red-950 text-white font-bold py-2 px-4 rounded-full transition-all duration-300">
+            Comenzar Gratis
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>

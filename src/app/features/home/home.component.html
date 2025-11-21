@@ -1,0 +1,302 @@
+<!-- Hero Section - Primera Impresión 3 segundos -->
+<section
+  class="relative min-h-screen flex items-center overflow-hidden bg-linear-to-br from-red-950 via-red-800 to-red-950">
+  <!-- Background Image with Overlay -->
+  <div class="absolute inset-0">
+    <img src="hero_owner_using_system.jpg" alt="Carnicero profesional usando sistema Bisté en tablet"
+      class="w-full h-full object-cover object-center opacity-100">
+    <div class="absolute inset-0 bg-linear-to-r from-red-950/70 via-red-900/40 to-transparent"></div>
+  </div>
+
+  <!-- Hero Content -->
+  <div class="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
+      <!-- Text Content -->
+      <div class="text-white">
+        <!-- Logo Section -->
+        <div class="mb-8 animate-fade-in-up">
+          <app-logo class="scale-110"></app-logo>
+        </div>
+
+        <!-- Main Headline -->
+        <h1 class="text-4xl md:text-6xl font-black mb-6 leading-tight animate-fade-in-up delay-200">
+          Tu carnicería, <br>
+          <span class="text-transparent bg-clip-text bg-linear-to-r from-orange-400 to-red-500">más simple</span> y <br>
+          <span class="text-transparent bg-clip-text bg-linear-to-r from-red-500 to-orange-600">rentable</span>.
+        </h1>
+
+        <!-- Subtitle -->
+        <h2 class="text-xl md:text-2xl text-orange-100 mb-8 leading-relaxed animate-fade-in-up delay-300 font-medium">
+          Biste es el software que te devuelve el tiempo para que te enfoques en lo que sabes hacer mejor:
+          cortar y vender la mejor carne. Olvídate de los dolores de cabeza.
+        </h2>
+
+        <!-- CTA Principal -->
+        <div class="animate-fade-in-up delay-400">
+          <a routerLink="/demo"
+             class="group inline-block bg-linear-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white font-black py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-orange-600/30 text-lg mb-4">
+            ¡Prueba Biste GRATIS ahora mismo!
+            <svg class="inline-block ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"
+              fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </a>
+          <p class="text-orange-200 text-sm animate-fade-in-up delay-500">
+            🚀 En 2 clics. Cero costos. Prueba todo el sistema ahora.
+          </p>
+        </div>
+      </div>
+
+      <!-- Empty space for image background -->
+      <div class="hidden lg:block"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Sección Problema/Solución - Conexión Emocional -->
+<section class="py-20 bg-red-50">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-black text-red-900 mb-4">
+        ¿El día a día de tu carnicería se siente así?
+      </h2>
+      <p class="text-xl text-gray-600">No estás solo. Estos son los problemas que resolvemos:</p>
+    </div>
+
+    <!-- Problemas Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+      <!-- Problema 1 -->
+      <app-problem-card
+        [iconPath]="'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z'"
+        [iconColor]="'red-600'"
+        [iconBg]="'red-100'"
+        [imageUrl]="'chaotic_inventory.jpg'"
+        [imageAlt]="'Inventario caótico en carnicería'"
+        [title]="'Inventario caótico'"
+        [description]="'Pasas más tiempo contando piezas que atendiendo clientes.'"
+      ></app-problem-card>
+
+      <!-- Problema 2 -->
+      <app-problem-card
+        [iconPath]="'M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z'"
+        [iconColor]="'orange-600'"
+        [iconBg]="'orange-100'"
+        [imageUrl]="'chaotic_bussines_papers.jpg'"
+        [imageAlt]="'Registros de ventas desorganizados'"
+        [title]="'¿Qué vendí hoy?'"
+        [description]="'Llegas al final del día y no tienes claras tus ganancias reales.'"
+      ></app-problem-card>
+
+      <!-- Problema 3 -->
+      <app-problem-card
+        [iconPath]="'M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4'"
+        [iconColor]="'yellow-600'"
+        [iconBg]="'yellow-100'"
+        [imageUrl]="'fridge_sold_out.jpg'"
+        [imageAlt]="'Refrigerador vacío sin producto'"
+        [title]="'Se te acaba el producto'"
+        [description]="'Pierdes ventas porque no sabes cuándo reponer tus cortes más populares.'"
+      ></app-problem-card>
+
+      <!-- Problema 4 -->
+      <app-problem-card
+        [iconPath]="'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z'"
+        [iconColor]="'purple-600'"
+        [iconBg]="'purple-100'"
+        [imageUrl]="'chaotic_sales_record.jpg'"
+        [imageAlt]="'Papeleo desorganizado en carnicería'"
+        [title]="'Papeleo sin fin'"
+        [description]="'Facturas, recibos y notas por todas partes. ¡Es un desastre!'"
+      ></app-problem-card>
+    </div>
+
+    <!-- Separador con Logo -->
+    <div class="flex items-center justify-center mb-16">
+      <div class="h-px bg-gray-300 flex-1"></div>
+      <div class="px-8">
+        <app-logo class="scale-125"></app-logo>
+      </div>
+      <div class="h-px bg-gray-300 flex-1"></div>
+    </div>
+
+    <!-- Solución -->
+    <div class="text-center max-w-4xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-red-900 mb-4">
+        Con Biste, todo cambia a simple
+      </h2>
+      <p class="text-xl text-gray-600 leading-relaxed">
+        Dejamos que la tecnología haga el trabajo pesado para que tú puedas poner tu pasión
+        donde se debe: en el mostrador.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Sección de Características y Beneficios -->
+<section class="py-20 bg-white">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        Todo lo que necesitas, más simple
+      </h2>
+      <p class="text-xl text-gray-600">Herramientas diseñadas específicamente para carnicerías como la tuya</p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <!-- Característica 1: Inventario -->
+      <app-feature-card
+        [bgColor]="'red-50'"
+        [imageUrl]="'esay_usage_tablet_between_meat.jpg'"
+        [imageAlt]="'Tablet con sistema Biste entre cortes de carne'"
+        [overlayColor]="'red-900'"
+        [iconColor]="'red-600'"
+        [iconPath]="'M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4'"
+        [title]="'Control de Inventario'"
+        [subtitleColor]="'red-700'"
+        [subtitle]="'Siempre sabes lo que tienes.'"
+        [description]="'Biste registra cada venta y ajusta tu inventario en tiempo real. Recibe alertas para reponer stock y reduce el desperdicio al mínimo.'"
+        [benefit]="'Ahorrar dinero y nunca te quedes sin tu estrella.'"
+      ></app-feature-card>
+
+      <!-- Característica 2: POS -->
+      <app-feature-card
+        [bgColor]="'orange-50'"
+        [imageUrl]="'table_showing_system.jpg'"
+        [imageAlt]="'Sistema POS de Biste en tablet'"
+        [overlayColor]="'orange-900'"
+        [iconColor]="'orange-600'"
+        [iconPath]="'M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z'"
+        [title]="'Punto de Venta (POS)'"
+        [subtitleColor]="'orange-700'"
+        [subtitle]="'Vendes más en menos tiempo.'"
+        [description]="'Una interfaz súper intuitiva con tus cortes favoritos a un solo toque. Procesa pagos, imprime tickets y fideliza clientes sin complicaciones.'"
+        [benefit]="'Clientes felices y filas más cortas.'"
+      ></app-feature-card>
+
+      <!-- Característica 3: Reportes -->
+      <app-feature-card
+        [bgColor]="'yellow-50'"
+        [imageUrl]="'tablet_con_reportes.jpg'"
+        [imageAlt]="'Tablet mostrando reportes de Biste'"
+        [overlayColor]="'yellow-900'"
+        [iconColor]="'yellow-600'"
+        [iconPath]="'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z'"
+        [title]="'Reportes que Entiendes'"
+        [subtitleColor]="'yellow-700'"
+        [subtitle]="'Tomas decisiones inteligentes.'"
+        [description]="'Olvídate de las hojas de cálculo complejas. Con un clic, sabrás cuál es tu corte más rentable, cuáles son tus mejores horas y cómo creció tu negocio.'"
+        [benefit]="'Lleva el control total de tu carnicería.'"
+      ></app-feature-card>
+    </div>
+  </div>
+</section>
+
+<!-- Sección de Testimonios - Prueba Social -->
+<section class="py-20 bg-gray-50">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        Carniceros que ya crecen con Biste
+      </h2>
+      <p class="text-xl text-gray-600">Escucha directamente de quienes ya usan nuestro sistema</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+      <!-- Testimonio 1 -->
+      <app-testimonial-card
+        [personImageUrl]="'teestimonio_1_maria.jpg'"
+        [personName]="'Sofía Ramírez'"
+        [role]="'Carnicería &quot;La Selecta&quot;'"
+        [roleColor]="'red-600'"
+        [borderColor]="'red-200'"
+        [testimonial]="'Gracias a los reportes de Biste, identifiqué a mis mejores clientes y lancé un plan de suscripción de parrilleros. ¡Mis ventas crecieron un 20% en tres meses! Es una herramienta que sí te hace ganar más dinero.'"
+        [location]="'Monterrey, Nuevo León'"
+        [locationColor]="'red-500'"
+      ></app-testimonial-card>
+
+      <!-- Testimonio 2 -->
+      <app-testimonial-card
+        [personImageUrl]="'testimonio_2_juan.jpg'"
+        [personName]="'Juan Pérez'"
+        [role]="'Carnicería &quot;El Corte de Don Juan&quot;'"
+        [roleColor]="'orange-600'"
+        [borderColor]="'orange-200'"
+        [testimonial]="'Pensé que era muy viejo para estos programas, pero Biste es increíblemente fácil. Ahora sé exactamente lo que gano cada día sin hacer cuentas a mano. ¡Lo recomiendo 100%!'"
+        [location]="'Ciudad de México, CDMX'"
+        [locationColor]="'orange-500'"
+      ></app-testimonial-card>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Final - Conversión -->
+<section class="relative py-20 bg-linear-to-br from-red-800 via-red-900 to-red-950 text-white overflow-hidden">
+  <!-- Background Pattern -->
+  <div class="absolute inset-0 opacity-10">
+    <div class="absolute top-0 left-0 w-full h-full"
+      style="background-image: radial-gradient(circle at 25% 25%, #fca5a5 1px, transparent 1px), radial-gradient(circle at 75% 75%, #fca5a5 1px, transparent 1px); background-size: 50px 50px;">
+    </div>
+  </div>
+
+  <div class="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-5xl mx-auto text-center">
+      <!-- CTA Image -->
+      <div class="mb-12">
+        <img src="cta_final_tablet_blank_screen.jpg" alt="Tablet lista para usar Biste"
+          class="w-full max-w-2xl mx-auto rounded-xl shadow-2xl border-4 border-red-700/30">
+      </div>
+
+      <!-- CTA Content -->
+      <h2 class="text-4xl md:text-5xl font-black mb-6 leading-tight">
+        ¿Listo para <span class="text-transparent bg-clip-text bg-linear-to-r from-orange-400 to-red-500">dejar de
+          complicarte</span> <br>
+        y <span class="text-transparent bg-clip-text bg-linear-to-r from-red-500 to-orange-600">empezar a vender
+          más</span>?
+      </h2>
+
+      <p class="text-xl md:text-2xl text-orange-100 mb-12 leading-relaxed max-w-3xl mx-auto">
+        Únete a las carnicerías modernas que están optimizando su tiempo y maximizando sus ganancias con Biste.
+      </p>
+
+      <!-- Final CTA Button -->
+      <div class="animate-fade-in-up">
+        <a routerLink="/demo"
+           class="group inline-block bg-linear-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white font-black py-6 px-12 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-orange-600/30 text-xl mb-6">
+          🎯 ¡Prueba el sistema COMPLETO ahora!
+          <svg class="inline-block ml-3 w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" fill="none"
+            stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+          </svg>
+        </a>
+
+        <div
+          class="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-6 text-orange-200">
+          <div class="flex items-center">
+            <svg class="w-5 h-5 mr-2 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd" />
+            </svg>
+            <span>💻 Cero instalación, funciona en tu navegador</span>
+          </div>
+          <div class="flex items-center">
+            <svg class="w-5 h-5 mr-2 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd" />
+            </svg>
+            <span>⚡ Prueba real, funcionalidades completas</span>
+          </div>
+          <div class="flex items-center">
+            <svg class="w-5 h-5 mr-2 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd" />
+            </svg>
+            <span>🔒 100% gratuito, sin compromiso</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

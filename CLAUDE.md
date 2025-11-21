@@ -1,0 +1,3 @@
+- siempre revisa que compile con ng b y revisa eslint con ng lint cuando termines tus tareas.
+- bg-gradient-to-r is deprecated, always use instead bg-linear-to-r
+- no uses colores personalizados, solo los colores de la paleta original de tailwind
